@@ -23,6 +23,7 @@ namespace ReviewCode
                 .ConfigureServices(services => services.AddSingleton<ILanguage, Language>())
                 .UseStartup<Startup>()              //Istartup类型返回Microsoft.AspNetCore.Hosting.ConventionBasedStartup
                 .UseStartup<MyStartUp>()          //IStartup类型返回MyStartup
+            .UseIISIntegration()
                 .Build();
     }
 }
