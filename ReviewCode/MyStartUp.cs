@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Builder.Internal;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
@@ -31,6 +32,7 @@ namespace ReviewCode
         public void Configure(IApplicationBuilder app)
         {
             app.UseStartupMiddleware();
+            var fileds = app.GetType().GetField("_components", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.DeclaredOnly);
             return;
             app.Run(context =>
             {
